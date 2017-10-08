@@ -5,13 +5,16 @@ export default class AppVR extends App {
     super();
 
     this._firstVRFrame = true;
-
     this._vr = {
       display: null,
       frameData: new VRFrameData()
     };
+  }
 
-    this._getDisplays().then(() => {
+  _initialize() {
+    super._initialize();
+
+    return this._getDisplays().then(() => {
       this._activateVR();
     });
   }
@@ -39,7 +42,7 @@ export default class AppVR extends App {
 
       // If there are no devices available, quit out.
       if (displays.length === 0) {
-        console.warn("No devices available able to present.");
+        window.alert("No devices available able to present.");
         return;
       }
 

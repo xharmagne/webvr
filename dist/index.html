@@ -16,6 +16,16 @@
 </head>
 
 <body>
+  <script>
+    window.onerror = function myErrorHandler(errorMsg, url, lineNumber) {
+      alert("Error occured: " + errorMsg);//or any message
+      return false;
+    }
+
+    document.body.addEventListener("click", function () {
+      document.body.webkitRequestFullScreen();
+    }, false);
+  </script>
   <script src="bundle.js"></script>
 </body>
 
